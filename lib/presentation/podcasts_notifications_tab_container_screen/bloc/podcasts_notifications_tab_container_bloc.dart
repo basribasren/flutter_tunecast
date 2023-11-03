@@ -1,0 +1,4 @@
+import 'package:equatable/equatable.dart';import 'package:flutter/material.dart';import '/core/app_export.dart';import 'package:basri_s_application28/presentation/podcasts_notifications_tab_container_screen/models/podcasts_notifications_tab_container_model.dart';part 'podcasts_notifications_tab_container_event.dart';part 'podcasts_notifications_tab_container_state.dart';class PodcastsNotificationsTabContainerBloc extends Bloc<PodcastsNotificationsTabContainerEvent, PodcastsNotificationsTabContainerState> {PodcastsNotificationsTabContainerBloc(PodcastsNotificationsTabContainerState initialState) : super(initialState) { on<PodcastsNotificationsTabContainerInitialEvent>(_onInitialize); }
+
+_onInitialize(PodcastsNotificationsTabContainerInitialEvent event, Emitter<PodcastsNotificationsTabContainerState> emit, ) async  {  } 
+ }

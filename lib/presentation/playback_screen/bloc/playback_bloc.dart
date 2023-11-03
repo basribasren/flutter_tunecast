@@ -1,0 +1,6 @@
+import '../models/playback_item_model.dart';import 'package:equatable/equatable.dart';import 'package:flutter/material.dart';import '/core/app_export.dart';import '../models/playback_item_model.dart';import 'package:basri_s_application28/presentation/playback_screen/models/playback_model.dart';part 'playback_event.dart';part 'playback_state.dart';class PlaybackBloc extends Bloc<PlaybackEvent, PlaybackState> {PlaybackBloc(PlaybackState initialState) : super(initialState) { on<PlaybackInitialEvent>(_onInitialize); on<PlaybackItemEvent>(_playbackItem); }
+
+_onInitialize(PlaybackInitialEvent event, Emitter<PlaybackState> emit, ) async  { emit(state.copyWith(playbackModelObj: state.playbackModelObj?.copyWith(playbackItemList: fillPlaybackItemList()))); } 
+_playbackItem(PlaybackItemEvent event, Emitter<PlaybackState> emit, ) { List<PlaybackItemModel> newList = List<PlaybackItemModel>.from(state.playbackModelObj!.playbackItemList); newList[event.index] = newList[event.index].copyWith(isSelectedSwitch: event.isSelectedSwitch); emit(state.copyWith(playbackModelObj: state.playbackModelObj?.copyWith(playbackItemList: newList))); } 
+List<PlaybackItemModel> fillPlaybackItemList() { return List.generate(7, (index) => PlaybackItemModel()); } 
+ }
