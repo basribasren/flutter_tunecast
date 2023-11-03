@@ -1,0 +1,6 @@
+import 'package:equatable/equatable.dart';import 'package:flutter/material.dart';import '/core/app_export.dart';import '../models/listcountry_item_model.dart';import '../models/listpodcasttitle1_item_model.dart';import 'package:basri_s_application28/presentation/search_result_podcast_page/models/search_result_podcast_model.dart';part 'search_result_podcast_event.dart';part 'search_result_podcast_state.dart';class SearchResultPodcastBloc extends Bloc<SearchResultPodcastEvent, SearchResultPodcastState> {SearchResultPodcastBloc(SearchResultPodcastState initialState) : super(initialState) { on<SearchResultPodcastInitialEvent>(_onInitialize); }
+
+_onInitialize(SearchResultPodcastInitialEvent event, Emitter<SearchResultPodcastState> emit, ) async  { emit(state.copyWith(searchResultPodcastModelObj: state.searchResultPodcastModelObj?.copyWith(listcountryItemList: fillListcountryItemList(), listpodcasttitle1ItemList: fillListpodcasttitle1ItemList()))); } 
+List<ListcountryItemModel> fillListcountryItemList() { return List.generate(3, (index) => ListcountryItemModel()); } 
+List<Listpodcasttitle1ItemModel> fillListpodcasttitle1ItemList() { return List.generate(2, (index) => Listpodcasttitle1ItemModel()); } 
+ }
